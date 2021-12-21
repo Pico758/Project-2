@@ -1,19 +1,27 @@
-function calc(){
-    var num1 = parseFloat(document.getElementById('num1').value);
-    var num2 = parseFloat(document.getElementById('num2').value);
-    var oper = document.getElementById('operators').value;
-    if(oper==='+'){
-        document.getElementById('result').value=num1+num2;
-    }
+let screen = document.getElementById('screen');
+let buttons = document.querySelectorAll('button');
+let screenValue = '';
+for (item of buttons) {
+    item.addEventListener('click', (e) => {
+        buttonText = e.target.innerText;
+        console.log('Button text is ', buttonText);
+        if (buttonText == 'X') {
+            buttonText = '*';
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
+        else if (buttonText == 'C') {
+            screenValue = "";
+            screen.value = screenValue;
+        }
+        else if (buttonText == '=') {
+            screen.value = eval(screenValue);
+        }
+        else {
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
 
-    if(oper==='-'){
-        document.getElementById('result').value=num1-num2;
-    }
-    if(oper==='/'){
-        document.getElementById('result').value=num1/num2;
-    }
-    if(oper==='*')
-    {
-        document.getElementById('result').value=num1*num2;
-    }
+    })
 }
+
