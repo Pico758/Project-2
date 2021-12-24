@@ -90,6 +90,7 @@ const option2 = document.querySelector("#option2");
 const option3 = document.querySelector("#option3");
 const option4 = document.querySelector("#option4");
 const submit = document.querySelector("#submit");
+const previous = document.querySelector("#previous");
 
 const answers = document.querySelectorAll(".answer");
 
@@ -119,6 +120,8 @@ const getCheckAnswer = () => {
 const deselectAll = () => {
     answers.forEach((curAnsElement) => curAnsElement.checked = false)
 }
+
+// submit for next question
 submit.addEventListener('click', () => {
     var checkedAnswer = document.querySelector('input[type=radio]:checked');
     if (!checkedAnswer) {
@@ -143,3 +146,26 @@ submit.addEventListener('click', () => {
         showScore.classList.remove("scoreArea");
     }
 });
+
+// previous question
+previous.addEventListener('click',() => {
+    // var checkedAnswer = document.querySelector('input[type=radio]:checked');
+    // if (!checkedAnswer) {
+    //     alert("please select your answer");
+    //     return;
+    // }
+
+   var checkedAnswer = getCheckAnswer();
+    console.log(checkedAnswer);
+
+    if (checkedAnswer === quizDB[quesCount].answer) {
+        score++;
+    };
+    quesCount--;
+    deselectAll();
+    if (quesCount < quizDB.length) {
+        loadQuestion();
+    }
+
+}
+)

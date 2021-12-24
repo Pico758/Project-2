@@ -66,6 +66,22 @@
     {
       background-color:rgb(130, 130, 245);
     }
+    #previous,.btn
+    {
+      display:block;
+      border:none; 
+      background-color:rgb(77, 77, 243);
+      font-size:1rem;
+      color:white;
+      padding:0.5rem 1rem;
+      margin:auto;
+      margin-top:1rem;
+      border-radius:0.5rem;
+    }
+    #previous:hover
+    {
+      background-color:rgb(130, 130, 245);
+    }
     #showScore{
         background-color:rgb(166, 232, 235);
         padding:1rem 1rem;
